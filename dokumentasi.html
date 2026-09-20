@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dokumentasi | OSIS SMKN 1 Klaten</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --navy: #173f68;
+            --blue: #3478b8;
+            --light-blue: #dceafa;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--light-gray);
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            height: 80px;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(10px);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            box-shadow: 0 3px 20px rgba(0,0,0,.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .logo h3 {
+            color: var(--navy);
+            font-size: 19px;
+        }
+
+        .logo p {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--blue);
+        }
+
+        .nav-menu .active {
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: var(--navy);
+            cursor: pointer;
+            background: #dceafa;
+            padding: 8px 12px;
+            border-radius: 10px;
+            line-height: 1;
+            z-index: 1002;
+        }
+
+
+        /* ================= MENU HP ================= */
+
+        @media(max-width:1000px) {
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+
+                position: absolute;
+                top: 80px;
+                right: 7%;
+
+                background: white;
+                padding: 12px;
+
+                border-radius: 18px;
+
+                flex-direction: column;
+                align-items: stretch;
+                gap: 6px;
+
+                min-width: 190px;
+
+                box-shadow: 0 15px 35px rgba(0,0,0,.15);
+
+                z-index: 1001;
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 12px 15px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 430px;
+            background: linear-gradient(135deg, #0f4c81, #3478b8);
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 60px 25px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 80px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            left: -220px;
+            bottom: -300px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border: 70px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            right: -300px;
+            top: 100px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #eef6ff;
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 80px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            color: var(--navy);
+            font-size: 42px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+
+        /* ================= LIST DOKUMENTASI ================= */
+
+        .documentation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 55px;
+        }
+
+        .documentation-card {
+            background: white;
+            border-radius: 28px;
+            padding: 35px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(23,63,104,0.08);
+            overflow: hidden;
+        }
+
+        .documentation-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .documentation-header h3 {
+            color: var(--navy);
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .documentation-header p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+
+        /* ================= SLIDER ================= */
+
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 22px;
+            background: #e8eef5;
+            touch-action: pan-y;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.45s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+
+        /* ================= TOMBOL SLIDER ================= */
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+
+            width: 48px;
+            height: 48px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.92);
+            color: var(--navy);
+
+            font-size: 28px;
+            font-weight: bold;
+
+            cursor: pointer;
+            z-index: 5;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.25s;
+        }
+
+        .slider-btn:hover {
+            background: var(--navy);
+            color: white;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .prev {
+            left: 18px;
+        }
+
+        .next {
+            right: 18px;
+        }
+
+
+        /* ================= COUNTER ================= */
+
+        .photo-counter {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+
+        /* ================= DOT ================= */
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #cbd5e1;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            width: 22px;
+            border-radius: 10px;
+            background: var(--blue);
+        }
+
+
+        /* ================= GOOGLE DRIVE ================= */
+
+        .drive-area {
+            position: relative;
+            z-index: 10;
+
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .drive-text {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .drive-button {
+            position: relative;
+            z-index: 11;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 13px 23px;
+
+            border-radius: 13px;
+
+            background: linear-gradient(
+                135deg,
+                var(--navy),
+                var(--blue)
+            );
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        .drive-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(23,63,104,0.2);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #123654;
+            color: white;
+            text-align: center;
+
+            padding: 50px 20px 45px;
+            margin-top: 100px;
+        }
+
+        footer h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #cbd5e1;
+
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .footer-line {
+            width: 90%;
+            max-width: 100px;
+            height: 2px;
+
+            background: rgba(255,255,255,0.18);
+
+            margin: 60px auto 35px;
+        }
+
+        .copyright {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .documentation-card {
+                padding: 25px;
+            }
+
+        }
+
+
+        /* ================= HP ================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 75px;
+                padding: 0 5%;
+            }
+
+            .logo img {
+                width: 42px;
+                height: 42px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                top: 75px;
+                right: 5%;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                min-height: 390px;
+                padding: 50px 25px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+
+            /* SECTION */
+
+            .section {
+                width: 92%;
+                margin: 60px auto;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .section-title p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+
+            /* CARD */
+
+            .documentation-card {
+                padding: 18px;
+                border-radius: 22px;
+            }
+
+            .documentation-header {
+                margin-bottom: 20px;
+            }
+
+            .documentation-header h3 {
+                font-size: 24px;
+            }
+
+            .documentation-header p {
+                font-size: 13px;
+            }
+
+
+            /* SLIDER */
+
+            .slider {
+                border-radius: 17px;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+
+            .prev {
+                left: 10px;
+            }
+
+            .next {
+                right: 10px;
+            }
+
+
+            /* DRIVE */
+
+            .drive-button {
+                width: 100%;
+                padding: 14px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 65px 20px 35px;
+                margin-top: 70px;
+            }
+
+            footer h2 {
+                font-size: 30px;
+            }
+
+            footer p {
+                font-size: 17px;
+            }
+
+            .footer-line {
+                margin: 45px auto 30px;
+            }
+
+            .copyright {
+                font-size: 15px;
+            }
+
+        }
+
+
+        /* ================= HP KECIL ================= */
+
+        @media (max-width: 400px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .documentation-header h3 {
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <img
+            src="logoos.png"
+            alt="Logo OSIS"
+        >
+
+        <div>
+
+            <h3>OSIS</h3>
+
+            <p>SMKN 1 KLATEN</p>
+
+        </div>
+
+    </div>
+
+
+    <nav class="nav-menu">
+
+        <a href="index.html">
+            Beranda
+        </a>
+
+        <a href="kegiatan.html">
+            Kegiatan di SMK
+        </a>
+
+        <a href="kepengurusan.html">
+            Kepengurusan
+        </a>
+
+        <a href="dokumentasi.html" class="active">
+            Dokumentasi
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Dokumentasi Kegiatan
+        </h1>
+
+        <p>
+            Lihat kembali berbagai momen dan kegiatan
+            OSIS SMKN 1 Klaten melalui dokumentasi berikut.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOKUMENTASI ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            Momen Kegiatan
+        </h2>
+
+        <p>
+            Geser foto untuk melihat dokumentasi lainnya.
+        </p>
+
+    </div>
+
+
+    <div class="documentation-list">
+
+
+        <!-- ================================================= -->
+        <!-- 1. NARANTARA -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Classmeeting Narantara
+                </h3>
+
+                <p>
+                    Juni 2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara1.png">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-1.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-2.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-3.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/narantara-4.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-5.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-6.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-7.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Narantara-10.jpg">
+                    </div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1ylDaaiSmdURDgQy65WS-5kwqJHzWPYPH"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 2. DONOR DARAH -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Donor Darah
+                </h3>
+
+                <p>
+                    2025
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Dondar-1.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Dondar-2.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/DonDar-3.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/DonDar-4.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/DonDar-5.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/DonDar-6.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Dondar-7.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/DonDar-8.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Dondar-9.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/DonDar-10.jpg">
+                    </div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1tBp9vuAlYoVyzqe9ptfApkPzi1cTmFul"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 3. RAMADHAN BERBAGI -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Ramadhan Berbagi
+                </h3>
+
+                <p>
+                    Februari 2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-1.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-2.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-3.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-4.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-5.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-6.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-7.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-8.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi-9.jpg">
+                    </div>
+
+                    <div class="slide">
+                        <img src="kegiatan Osis/Ramadhan Berbagi.jpg">
+                    </div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1DyMWjpnGTY1D5SDdhv4qtr0FcUrRpFZ2"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 4. SWARNASAKA -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    HUT Swarnasaka 65
+                </h3>
+
+                <p>
+                    Agustus 2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-7.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-8.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-9.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Swarnasaka-10.jpg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1mZBzkXycZWQDke8w3gcTTDbPT-uHpHLO"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 5. BUNGAFEST -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Bungafest
+                </h3>
+
+                <p>
+                    2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-7.jpeg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-8.jpeg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-9.jpeg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Bungafest-10.jpeg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1cedctYIWABwszyOHt0Vzepm4QdxY0YuU"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 6. AURELION -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Aurelion
+                </h3>
+
+                <p>
+                    Oktober 2025
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-7.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-8.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-9.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aurelion-10.jpg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1hKstMiQBex1Vq0i-DlzUtz_7J_ES0gEO"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 7. HAORNAS -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Haornas Lampahing Wirya
+                </h3>
+
+                <p>
+                    September 2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Haornas-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-7.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-8.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-9.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Haornas-10.jpg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1gjnDxFcFMKBQVhyKwtkTE5BlMbCeNEr8"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 8. UPACARA -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Upacara Bendera
+                </h3>
+
+                <p>
+                    2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Upacara-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-7.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-8.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-9.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Upacara-10.jpg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1aqm8fxqP_8MaI-xPjBfK5zxzn2WMkCN7"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 9. ALETHEIA -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Classmeeting Aletheia
+                </h3>
+
+                <p>
+                    Desember 2025
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-7.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-8.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-9.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Aletheia-10.jpg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1jjAFEHmniZur8BEHVPc82V8y8PnN3bwl"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 10. JUMAT PAGI -->
+        <!-- ================================================= -->
+
+        <div class="documentation-card">
+
+            <div class="documentation-header">
+
+                <h3>
+                    Pembiasaan Jumat Pagi
+                </h3>
+
+                <p>
+                    2026
+                </p>
+
+            </div>
+
+
+            <div class="slider">
+
+                <div class="slider-track">
+
+                    <div class="slide"><img src="kegiatan Osis/Jumat-1.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Jumat-2.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/jumat-3.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Jumat-4.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/jumat-5.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/jumat-6.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Jumat-7.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/jumat-8.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/jumat-9.jpg"></div>
+                    <div class="slide"><img src="kegiatan Osis/Jumat-10.jpg"></div>
+
+                </div>
+
+
+                <button class="slider-btn prev"
+                        onclick="moveSlide(this,-1)">
+                    ‹
+                </button>
+
+                <button class="slider-btn next"
+                        onclick="moveSlide(this,1)">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="photo-counter">
+                Foto <span class="current">1</span> / 10
+            </div>
+
+            <div class="dots"></div>
+
+
+            <div class="drive-area">
+
+                <p class="drive-text">
+                    Masih ingin melihat dokumentasi lainnya?
+                </p>
+
+                <a href="https://drive.google.com/drive/folders/1JPDEQJU-7PeWaZs4ZaxfkLdrl_lCyiwg"
+                   target="_blank"
+                   class="drive-button">
+                    📁 Lihat Dokumentasi Lengkap
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>
+        OSIS SMKN 1 Klaten
+    </h2>
+
+    <p>
+        Satu Jiwa, Satu Rasa, Satu Tujuan, Satu Harapan,<br>
+        Tetap Semangat OSAKA JAYA!
+    </p>
+
+    <div class="footer-line"></div>
+
+    <div class="copyright">
+        © 2026 OSIS SMKN 1 Klaten
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    /* ================= MENU HP ================= */
+
+    function toggleMenu() {
+
+        const menu =
+            document.querySelector(".nav-menu");
+
+        if (menu) {
+            menu.classList.toggle("show");
+        }
+
+    }
+
+
+    /* ================= SLIDER ================= */
+
+    function moveSlide(button, direction) {
+
+        const slider =
+            button.closest(".slider");
+
+        const track =
+            slider.querySelector(".slider-track");
+
+        const slides =
+            slider.querySelectorAll(".slide");
+
+        const card =
+            slider.closest(".documentation-card");
+
+        const counter =
+            card.querySelector(".current");
+
+        let current =
+            parseInt(slider.dataset.current || 0);
+
+        current += direction;
+
+
+        if (current < 0) {
+            current = slides.length - 1;
+        }
+
+
+        if (current >= slides.length) {
+            current = 0;
+        }
+
+
+        slider.dataset.current = current;
+
+
+        track.style.transform =
+            `translateX(-${current * 100}%)`;
+
+
+        counter.textContent =
+            current + 1;
+
+
+        updateDots(
+            slider,
+            current
+        );
+
+    }
+
+
+    /* ================= UPDATE DOT ================= */
+
+    function updateDots(slider, current) {
+
+        const card =
+            slider.closest(".documentation-card");
+
+        const dots =
+            card.querySelectorAll(".dot");
+
+
+        dots.forEach(function(dot, index) {
+
+            dot.classList.toggle(
+                "active",
+                index === current
+            );
+
+        });
+
+    }
+
+
+    /* ================= DOT OTOMATIS ================= */
+
+    document.querySelectorAll(".slider").forEach(function(slider) {
+
+        const card =
+            slider.closest(".documentation-card");
+
+        const dotsContainer =
+            card.querySelector(".dots");
+
+        const slides =
+            slider.querySelectorAll(".slide");
+
+
+        slides.forEach(function(slide, index) {
+
+            const dot =
+                document.createElement("span");
+
+            dot.classList.add("dot");
+
+
+            if (index === 0) {
+                dot.classList.add("active");
+            }
+
+
+            dot.addEventListener("click", function() {
+
+                const track =
+                    slider.querySelector(".slider-track");
+
+
+                slider.dataset.current =
+                    index;
+
+
+                track.style.transform =
+                    `translateX(-${index * 100}%)`;
+
+
+                card.querySelector(".current").textContent =
+                    index + 1;
+
+
+                updateDots(
+                    slider,
+                    index
+                );
+
+            });
+
+
+            dotsContainer.appendChild(dot);
+
+        });
+
+    });
+
+
+    /* ================= SWIPE HP ================= */
+
+    document.querySelectorAll(".slider").forEach(function(slider) {
+
+        let startX = 0;
+        let endX = 0;
+
+
+        slider.addEventListener("touchstart", function(event) {
+
+            startX =
+                event.touches[0].clientX;
+
+        });
+
+
+        slider.addEventListener("touchend", function(event) {
+
+            endX =
+                event.changedTouches[0].clientX;
+
+
+            const distance =
+                endX - startX;
+
+
+            if (Math.abs(distance) > 50) {
+
+                const direction =
+                    distance < 0 ? 1 : -1;
+
+
+                const button =
+                    slider.querySelector(
+                        direction === 1
+                            ? ".next"
+                            : ".prev"
+                    );
+
+
+                moveSlide(
+                    button,
+                    direction
+                );
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+</html>

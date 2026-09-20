@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | OSIS SMKN 1 Klaten</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --navy: #173f68;
+            --blue: #3478b8;
+            --light-blue: #dceafa;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        body {
+            background: var(--light-gray);
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            height: 80px;
+            background: rgba(255,255,255,.96);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            box-shadow: 0 3px 20px rgba(0,0,0,.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .logo h3 {
+            color: var(--navy);
+            font-size: 19px;
+        }
+
+        .logo p {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--blue);
+        }
+
+        .nav-menu .active {
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+
+        @media(min-width:1001px){
+
+            .nav-menu {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .nav-menu a {
+                text-decoration: none;
+                color: #334155;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 11px 16px;
+                border-radius: 12px;
+                transition: .3s;
+            }
+
+            .nav-menu a:hover {
+                background: #dceafa;
+                color: #3478b8;
+            }
+
+            .nav-menu a.active {
+                background: #3478b8;
+                color: white;
+                box-shadow: 0 5px 15px rgba(52,120,184,.25);
+            }
+
+        }
+
+
+        @media(max-width:1000px){
+
+            .menu-toggle {
+                display: block;
+                background: #dceafa;
+                padding: 8px 12px;
+                border-radius: 10px;
+                line-height: 1;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                right: 7%;
+                background: white;
+                padding: 12px;
+                border-radius: 18px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 6px;
+                min-width: 190px;
+                box-shadow: 0 15px 35px rgba(0,0,0,.15);
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 12px 15px;
+                border-radius: 10px;
+            }
+
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 430px;
+            background: linear-gradient(135deg, #0f4c81, #3478b8);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 60px 25px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 80px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            left: -220px;
+            bottom: -300px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border: 70px solid rgba(255,255,255,0.08);
+            border-radius: 50%;
+            right: -300px;
+            top: 100px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #eef6ff;
+        }
+
+
+        /* ================= SOCIAL MEDIA ================= */
+
+        .section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 80px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: var(--navy);
+            font-size: 42px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 17px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .social-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px 25px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 8px 25px rgba(23, 63, 104, 0.07);
+            transition: 0.35s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(23, 63, 104, 0.14);
+        }
+
+        .social-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 22px;
+            border-radius: 22px;
+            background: var(--light-blue);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .social-card h3 {
+            color: var(--navy);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .social-card p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* ================= PESAN ================= */
+
+        .message-section {
+            width: 90%;
+            max-width: 1100px;
+            margin: 90px auto;
+        }
+
+        .message-box {
+            background: white;
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(23, 63, 104, 0.08);
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .message-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .message-info h2 {
+            color: var(--navy);
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .message-info > p {
+            color: var(--gray);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .message-point {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .message-point-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            background: var(--light-blue);
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .message-point p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .contact-form {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .contact-form h3 {
+            color: var(--navy);
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1px solid #d8e1eb;
+            border-radius: 13px;
+            padding: 14px 16px;
+            font-size: 14px;
+            color: #334155;
+            background: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(52, 120, 184, 0.10);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            border-radius: 13px;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(23, 63, 104, 0.20);
+        }
+
+        .form-note {
+            color: var(--gray);
+            font-size: 12px;
+            line-height: 1.5;
+            margin-top: 12px;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #123654;
+            color: white;
+            text-align: center;
+            padding: 80px 20px 45px;
+            margin-top: 100px;
+        }
+
+        footer h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        footer p {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #cbd5e1;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+
+        .footer-line {
+            width: 90%;
+            max-width: 1000px;
+            height: 2px;
+            background: rgba(255,255,255,0.18);
+            margin: 60px auto 35px;
+        }
+
+        .copyright {
+            font-size: 16px;
+            color: #94a3b8;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .message-box {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* ================= HP ================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            .nav-menu {
+                top: 70px;
+                right: 5%;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                min-height: 390px;
+                padding: 50px 25px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+
+            /* SOCIAL */
+
+            .section {
+                width: 92%;
+                margin: 60px auto;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .section-title p {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .social-card {
+                padding: 30px 20px;
+            }
+
+
+            /* PESAN */
+
+            .message-section {
+                width: 92%;
+                margin: 65px auto;
+            }
+
+            .message-box {
+                padding: 25px 20px;
+                border-radius: 22px;
+                gap: 35px;
+            }
+
+            .message-info h2 {
+                font-size: 29px;
+            }
+
+            .message-info > p {
+                font-size: 14px;
+            }
+
+            .contact-form {
+                padding: 22px 18px;
+            }
+
+            .contact-form h3 {
+                font-size: 22px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 65px 20px 35px;
+                margin-top: 70px;
+            }
+
+            footer h2 {
+                font-size: 30px;
+            }
+
+            footer p {
+                font-size: 17px;
+            }
+
+            .footer-line {
+                margin: 45px auto 30px;
+            }
+
+            .copyright {
+                font-size: 15px;
+            }
+
+        }
+
+
+        /* ================= HP KECIL ================= */
+
+        @media (max-width: 400px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <img src="logoos.png" alt="Logo OSIS">
+
+            <div>
+                <h3>OSIS</h3>
+                <p>SMKN 1 KLATEN</p>
+            </div>
+
+        </div>
+
+
+        <nav class="nav-menu">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="kegiatan.html">
+                Kegiatan di SMK
+            </a>
+
+            <a href="kepengurusan.html">
+                Kepengurusan
+            </a>
+
+            <a href="dokumentasi.html">
+                Dokumentasi
+            </a>
+
+            <a href="contact.html" class="active">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Hubungi Kami
+            </h1>
+
+            <p>
+                Terhubung lebih dekat dengan OSIS SMKN 1 Klaten.
+                Temukan informasi terbaru melalui media sosial kami
+                atau sampaikan pesan dan saranmu kepada kami.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SOCIAL MEDIA ================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <h2>
+                Media Sosial
+            </h2>
+
+            <p>
+                Yuk, ikuti dan temukan berbagai informasi serta kegiatan OSIS.
+            </p>
+
+        </div>
+
+
+        <div class="social-grid">
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/os_smerusaka"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-card"
+            >
+
+                <div class="social-icon">
+                    📸
+                </div>
+
+                <h3>
+                    Instagram
+                </h3>
+
+                <p>
+                    Ikuti informasi, dokumentasi,
+                    dan kegiatan terbaru OSIS.
+                </p>
+
+            </a>
+
+
+
+            <!-- TIKTOK -->
+
+            <a
+                href="https://www.tiktok.com/@os_smerusaka?_r=1&_t=ZS-99gpfoJhpjB"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-card"
+            >
+
+                <div class="social-icon">
+                    🎵
+                </div>
+
+                <h3>
+                    TikTok
+                </h3>
+
+                <p>
+                    Saksikan berbagai video
+                    dan keseruan kegiatan OSIS.
+                </p>
+
+            </a>
+
+
+
+            <!-- YOUTUBE -->
+
+            <a
+                href="https://youtube.com/@osissmerusaka5703?si=YDcUZWf2j6m9BsLv"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-card"
+            >
+
+                <div class="social-icon">
+                    ▶️
+                </div>
+
+                <h3>
+                    YouTube
+                </h3>
+
+                <p>
+                    Tonton dokumentasi dan
+                    berbagai video kegiatan OSIS.
+                </p>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= KIRIM PESAN ================= -->
+
+    <section class="message-section">
+
+        <div class="message-box">
+
+
+            <!-- INFORMASI -->
+
+            <div class="message-info">
+
+                <h2>
+                    Punya Pesan?
+                </h2>
+
+                <p>
+                    Kami terbuka untuk menerima pertanyaan,
+                    saran, kritik, maupun pesan dari pengunjung
+                    website OSIS SMKN 1 Klaten.
+                </p>
+
+
+                <div class="message-point">
+
+                    <div class="message-point-icon">
+                        💬
+                    </div>
+
+                    <p>
+                        Sampaikan pertanyaan atau saranmu.
+                    </p>
+
+                </div>
+
+
+                <div class="message-point">
+
+                    <div class="message-point-icon">
+                        💡
+                    </div>
+
+                    <p>
+                        Berikan ide untuk kegiatan OSIS.
+                    </p>
+
+                </div>
+
+
+                <div class="message-point">
+
+                    <div class="message-point-icon">
+                        🤝
+                    </div>
+
+                    <p>
+                        Mari terhubung dan berkembang bersama.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FORM PESAN -->
+
+            <div class="contact-form">
+
+                <h3>
+                    Kirim Pesan ✉️
+                </h3>
+
+                <form
+                    id="contactForm"
+                    action="https://formspree.io/f/mnpnnkoj"
+                    method="POST"
+                >
+
+
+                    <div class="form-group">
+
+                        <label for="nama">
+                            Nama
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nama"
+                            name="nama"
+                            placeholder="Masukkan nama kamu"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Masukkan email kamu"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="subjek">
+                            Subjek
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subjek"
+                            name="subjek"
+                            placeholder="Contoh: Saran kegiatan"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="pesan">
+                            Pesan
+                        </label>
+
+                        <textarea
+                            id="pesan"
+                            name="pesan"
+                            placeholder="Tuliskan pesan kamu di sini..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        Kirim Pesan
+                    </button>
+
+
+                    <p class="form-note">
+                        Terimakasih telah mendukung kegiatan kami dengan mengirimkan saran.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h2>
+            OSIS SMKN 1 Klaten
+        </h2>
+
+        <p>
+            Satu Jiwa, Satu Rasa, Satu Tujuan, Satu Harapan,<br>
+            Tetap Semangat OSAKA JAYA!
+        </p>
+
+        <div class="footer-line"></div>
+
+        <div class="copyright">
+            © 2026 OSIS SMKN 1 Klaten
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        // MENU HP
+
+        function toggleMenu() {
+
+            const menu = document.querySelector(".nav-menu");
+
+            menu.classList.toggle("show");
+
+        }
+
+    </script>
+
+</body>
+</html>
